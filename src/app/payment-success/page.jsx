@@ -2,6 +2,9 @@ import Stripe from 'stripe';
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
 
+// Force dynamic rendering since this page uses Stripe API calls
+export const dynamic = 'force-dynamic';
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 });

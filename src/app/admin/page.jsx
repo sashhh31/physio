@@ -2,6 +2,9 @@ import { requireAuth, checkUserRole } from "../../lib/auth";
 import { getAllPhysiotherapistProfilesForAdmin } from "../../lib/actions/physiotherapist";
 import TherapistManagement from "./components/TherapistManagement";
 
+// Force dynamic rendering since this page uses authentication
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboardPage() {
   const user = await checkUserRole(["Admin"]);
   const therapistsResult = await getAllPhysiotherapistProfilesForAdmin();

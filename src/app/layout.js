@@ -3,6 +3,9 @@ import "./globals.css";
 import Header from "./components/header";
 import { getCurrentUser } from "../lib/auth";
 
+// Force dynamic rendering to avoid static generation errors with cookies
+export const dynamic = 'force-dynamic';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
