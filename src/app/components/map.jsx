@@ -265,33 +265,31 @@ const IrelandPhysiotherapistMap = () => {
   };
 
   return (
- <section className="relative bg-gradient-to-br from-emerald-50 via-white to-green-50 py-0 sm:py-20">
-
-
+    <section className="relative bg-gradient-to-br from-emerald-50 via-white to-green-50 py-8 sm:py-12 md:py-20">
       <div className="w-full">
-        {/* Header */}
-        <div className="text-center space-y-4 mb-12 px-4 animate-fade-in-up">
-          <h2 className="text-4xl lg:text-5xl font-bold text-green-500 animate-slide-in-down">
+        {/* Header with better mobile spacing */}
+        <div className="text-center space-y-4 mb-8 sm:mb-12 px-4 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-500 animate-slide-in-down leading-tight">
             Find Physiotherapists
             <span className="text-green-500 block animate-pulse-subtle">Across Ireland</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in delay-300">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in delay-300 px-2">
             Discover certified physiotherapists in your area. Click on any
             marker to view available therapists and book your appointment.
           </p>
         </div>
 
-        {/* Map Container */}
-        <div className="relative overflow-hidden animate-fade-in delay-500">
+        {/* Map Container with improved mobile positioning */}
+        <div className="relative overflow-hidden animate-fade-in delay-500 px-4 sm:px-0">
           <div
             ref={mapRef}
-            className="w-full h-[600px] bg-gray-100 relative z-10 hover:scale-105 transition-transform duration-700"
-            style={{ minHeight: "600px" }}
+            className="w-full h-[400px] sm:h-[500px] md:h-[600px] bg-gray-100 relative z-10 hover:scale-105 transition-transform duration-700 rounded-lg"
+            style={{ minHeight: "400px" }}
           />
 
           {/* Loading overlay */}
           {!L && (
-            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center rounded-lg">
               <div className="text-center space-y-4">
                 <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
                 <p className="text-gray-600">Loading map...</p>

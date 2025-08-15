@@ -39,7 +39,7 @@ const Header = ({ user = null }) => {
     <img
       src="/logo.png"
       alt="Abaile Logo"
-      className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto max-w-[240px] transition-opacity duration-200 hover:opacity-80"
+      className="h-16 sm:h-20 mb-4 md:h-24 lg:h-28 w-auto max-w-[240px] transition-opacity duration-200 hover:opacity-80"
     />
   </a>
 </div>

@@ -116,51 +116,56 @@ export default function FindTherapistPage() {
   ).slice(0, 50);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 py-12 px-4">
+    <section className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 py-6 sm:py-12 px-4 sm:px-6">
       <div className="max-w-screen-xl mx-auto relative z-10">
 
-        <SearchBar
-          value={search}
-          onDebouncedChange={setSearch}
-          suggestions={therapists.filter((t) =>
-            [t.name, t.specialization, t.bio, t.location]
-              .some((field) => field?.toLowerCase().includes(search.toLowerCase()))
-          )}
-          onSelectSuggestion={(t) => setSearch(t.name)}
-        />
+        {/* Search Bar with better mobile spacing */}
+        <div className="mb-8 sm:mb-12">
+          <SearchBar
+            value={search}
+            onDebouncedChange={setSearch}
+            suggestions={therapists.filter((t) =>
+              [t.name, t.specialization, t.bio, t.location]
+                .some((field) => field?.toLowerCase().includes(search.toLowerCase()))
+            )}
+            onSelectSuggestion={(t) => setSearch(t.name)}
+          />
+        </div>
 
-        <div className="bg-[#f9fdfc] py-20 px-6 md:px-20 text-center relative">
-          <h2 className="text-4xl md:text-5xl font-bold text-green-500">
+        {/* Hero section with improved mobile spacing */}
+        <div className="bg-[#f9fdfc] py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-20 text-center relative mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-500 leading-tight">
             Expert Care in <br />
             <span className="text-green-500">Every Specialty</span>
           </h2>
-          <p className="mt-4 text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-gray-600 text-base md:text-lg max-w-2xl mx-auto px-2">
             Discover our comprehensive range of physiotherapy specializations. Each treatment
             area is designed to provide targeted care for your specific needs.
           </p>
-          <div className="flex flex-wrap justify-center gap-8 mt-6 text-sm text-gray-700">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8 text-sm text-gray-700 px-2">
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2" />
               </svg>
-              Personalized Care
+              <span className="text-xs sm:text-sm">Personalized Care</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zM6 20v-2c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2" />
               </svg>
-              Expert Therapists
+              <span className="text-xs sm:text-sm">Expert Therapists</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M12 17.27L18.18 21l-1.45-6.3L22 9.24l-6.38-.55L12 3 8.38 8.69 2 9.24l5.27 5.46L5.82 21z" />
               </svg>
-              Proven Results
+              <span className="text-xs sm:text-sm">Proven Results</span>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Therapist grid with better mobile spacing */}
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {initialLoad
             ? Array.from({ length: 8 }).map((_, idx) => <SkeletonCard key={idx} />)
             : filtered.map((t, index) =>
@@ -174,31 +179,33 @@ export default function FindTherapistPage() {
               )}
         </div>
 
-        <div className="mt-20 text-center space-y-6 animate-fade-in delay-700">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-[#7ce3b1]/30 shadow-lg max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-green-500 mb-4">
+        {/* CTA section with improved mobile layout */}
+        <div className="mt-12 sm:mt-16 md:mt-20 text-center space-y-6 animate-fade-in delay-700 mb-8 sm:mb-12">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#7ce3b1]/30 shadow-lg max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-500 mb-4 sm:mb-6">
               Ready to Start Your Recovery Journey?
             </h2>
-            <p className="text-xl text-gray-600 mb-6">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2">
               Book an appointment with our certified physiotherapists and get personalized treatment plans.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-emerald-600 from-[#7ce3b1] to-[#6dd4a2] hover:from-[#6dd4a2] hover:to-[#5eb893] text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
+              <button className="bg-emerald-600 from-[#7ce3b1] to-[#6dd4a2] hover:from-[#6dd4a2] hover:to-[#5eb893] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Book Appointment Now
               </button>
-              <button className="border-2 border-[#7ce3b1] hover:bg-[#7ce3b1]/10 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 bg-emerald-600">
+              <button className="border-2 border-[#7ce3b1] hover:bg-[#7ce3b1]/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 bg-emerald-600">
                 Find Therapists
               </button>
             </div>
           </div>
         </div>
 
+        {/* Loading and status messages with better spacing */}
         {loading && skip > 0 && (
-          <p className="text-center text-gray-500 mt-4">Loading more therapists...</p>
+          <p className="text-center text-gray-500 mt-6 sm:mt-8 mb-4">Loading more therapists...</p>
         )}
 
         {!loading && !hasMore && useFallback && (
-          <p className="text-center text-gray-400 mt-4">No more therapists to show.</p>
+          <p className="text-center text-gray-400 mt-6 sm:mt-8 mb-4">No more therapists to show.</p>
         )}
       </div>
 

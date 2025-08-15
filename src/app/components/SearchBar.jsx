@@ -41,7 +41,7 @@ export default function SearchBar({
   };
 
   return (
-    <div ref={wrapperRef} className="relative max-w-xl mx-auto w-full transition-all">
+    <div ref={wrapperRef} className="relative max-w-xl mx-auto w-full transition-all px-2 sm:px-0">
       <div className="relative flex items-center">
         <Search className="absolute left-3 text-gray-400 h-5 w-5" />
         <input
@@ -55,7 +55,7 @@ export default function SearchBar({
           onFocus={() => {
             if (suggestions.length > 0) setShowDropdown(true);
           }}
-          className="w-full pl-10 pr-10 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-200 placeholder-gray-400"
+          className="w-full pl-10 pr-10 py-3 sm:py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-200 placeholder-gray-400 text-base"
         />
         {input && (
           <button
@@ -72,48 +72,48 @@ export default function SearchBar({
           {suggestions.map((item) => (
             <li
               key={item.id}
-              className="flex items-start gap-4 px-4 py-4 hover:bg-emerald-50 transition cursor-pointer"
+              className="flex items-start gap-3 sm:gap-4 px-3 sm:px-4 py-3 sm:py-4 hover:bg-emerald-50 transition cursor-pointer"
               onClick={() => handleSelect(item)}
             >
               {/* Image */}
               <img
                 src={item.image || '/default-avatar.png'}
                 alt={item.name}
-                className="w-16 h-16 rounded-full object-cover border"
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border flex-shrink-0"
               />
 
               {/* Info */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-gray-900">
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 truncate">
                     {item.name}
                   </h3>
-                  <span className="text-sm text-yellow-600 font-medium">
+                  <span className="text-xs sm:text-sm text-yellow-600 font-medium flex-shrink-0 ml-2">
                     ⭐ {item.rating || 'N/A'}
                   </span>
                 </div>
 
-                <p className="text-sm text-gray-600">{item.specialization}</p>
+                <p className="text-xs sm:text-sm text-gray-600 truncate">{item.specialization}</p>
 
                 {item.clinics?.length > 0 && (
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500 truncate">
                     {item.clinics[0].name} – {item.clinics[0].city}
                   </p>
                 )}
 
-                <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                <p className="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-2">
                   {item.bio}
                 </p>
 
                 <div className="mt-2 flex items-center justify-between">
                   {/* Price */}
-                  <span className="text-sm font-medium text-emerald-600">
+                  <span className="text-xs sm:text-sm font-medium text-emerald-600">
                     {item.price}
                   </span>
 
                   {/* First available slot */}
                   {item.availableSlots?.length > 0 && (
-                    <span className="text-sm text-gray-400">
+                    <span className="text-xs sm:text-sm text-gray-400">
                       ⏰ {item.availableSlots[0]}
                     </span>
                   )}
@@ -122,7 +122,7 @@ export default function SearchBar({
 
               {/* Book Now Button */}
               <button
-                className="ml-2 px-3 py-1 bg-emerald-500 text-white text-sm rounded-md hover:bg-emerald-600 transition"
+                className="ml-2 px-2 sm:px-3 py-1 bg-emerald-500 text-white text-xs sm:text-sm rounded-md hover:bg-emerald-600 transition flex-shrink-0"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleSelect(item);
