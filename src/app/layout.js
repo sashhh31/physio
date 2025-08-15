@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Abaile - Physiotherapy Booking Platform",
   description: "Find and book appointments with qualified physiotherapists in Ireland",
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export default async function RootLayout({ children }) {
@@ -27,6 +32,11 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.png" />
+        <link rel="shortcut icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
